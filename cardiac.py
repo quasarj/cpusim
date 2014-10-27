@@ -92,29 +92,35 @@ class Cardiac(object):
 
     # OUT
     def opcode_5(self, data):
+        """Print memory to output"""
         print self.mem[data]
 
     # STO
     def opcode_6(self, data):
-        pass
+        """Store accumulator at memory"""
+        self.mem[data] = self.acc
 
     # SUB
     def opcode_7(self, data):
-        pass
+        """Subtract memory from accumulator"""
+        self.acc -= self.mem[data]
 
     # JMP
     def opcode_8(self, data):
-        pass
+        """Jump"""
+        # print "--- jumping to: ", self.mem[data]
+        self.pc = self.mem[data]
 
     # HLT
     def opcode_9(self, data):
+        """Halt"""
         self.running = False
 
 cardiac = Cardiac()
 cardiac.reset()
-cardiac.load_memory([120, 221, 520, 300, 0, 0, 0, 0, 0, 0,
+cardiac.load_memory([120, 620, 520, 723, 306, 823, 900, 0, 0, 0,
                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-                     15, 5, -1, 0, 0, 0, 0, 0, 0, 0, 
+                     15, 5, -1, 1, 0, 0, 0, 0, 0, 0, 
                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
