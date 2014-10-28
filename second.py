@@ -148,7 +148,9 @@ class Second(object):
     def PTM(self, reg, other):
         loc = to_int(other)
         val = self.mem[loc:loc+4]
-        print("PTM: {} ({})".format(to_int(val), hexlify(val)))
+        print("PTM: {} ({}) Loc: {}".format(to_int(val), 
+                                            hexlify(val), 
+                                            hexlify(other)))
 
     def PTS(self, reg, other):
         pass
